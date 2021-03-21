@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Competition: CompetitionView
+public class FamilyTreeArticle: ArticleView
    {  
        [Key]
        public int Id {get; set; }
@@ -11,11 +11,11 @@ public class Competition: CompetitionView
        public bool EnabledInWeb { get; set; }
    }  
 
-   public class CompetitionView
+   public class ArticleView
    {  
        public Guid? EId { get; set; }  
-       public string Name { get; set; }  
-       public DateTime Start { get; set; }  
-       public DateTime? End { get; set; } 
-       public IEnumerable<MatchGroup> MatchGroups { get; set; }       
+       public string Name { get; set; }
+       public string Description { get; set; }
+       public string Text { get; set; }
+       public ICollection<FamilyTreeKeyword> Keywords { get; set; }       
    }  
