@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class FamilyTreeKeyword: KeywordView
+public class BirthParish: BirthParishView
    {  
        [Key]
        public int Id {get; set; }
@@ -11,9 +11,9 @@ public class FamilyTreeKeyword: KeywordView
        public bool EnabledInWeb { get; set; }
    }  
 
-   public class KeywordView
+   public class BirthParishView
    {  
        public Guid? EId { get; set; }  
-       public string Name { get; set; }
-       public string Description { get; set; }    
+       public string Names { get; set; }
+       public ICollection<Person> Persons { get; set; }        
    }  

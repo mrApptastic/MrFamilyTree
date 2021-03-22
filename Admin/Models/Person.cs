@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class FamilyTreePerson: PersonView
+public class Person: PersonView
    {  
        [Key]
        public int Id {get; set; }
@@ -21,6 +21,5 @@ public class FamilyTreePerson: PersonView
        public int? MotherId { get; set; }
        public int? FatherId { get; set; }
        public string BirthName { get; set; }
-       public int? BirthParishId { get; set; }
        public string Notes { get; set; }     
    }  

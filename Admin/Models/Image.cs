@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class FamilyTreeImage: ImageView
+public class Image: ImageView
    {  
        [Key]
        public int Id {get; set; }
@@ -16,5 +16,6 @@ public class FamilyTreeImage: ImageView
        public Guid? EId { get; set; }  
        public string Url { get; set; }
        public string Description { get; set; }
-       public ICollection<FamilyTreeKeyword> Keywords { get; set; }     
+       public ICollection<Keyword> Keywords { get; set; }   
+       public ICollection<Person> Persons { get; set; }      
    }  

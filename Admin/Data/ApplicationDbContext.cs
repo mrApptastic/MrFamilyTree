@@ -17,10 +17,11 @@ namespace MrFamilyTree.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
-        public DbSet<FamilyTreeArticle> Articles {get; set;}
-        public DbSet<FamilyTreeImage> Images { get; set; }
-        public DbSet<FamilyTreeKeyword> Keywords {get; set;}
-        public DbSet<FamilyTreePerson> Persons {get; set;}
+        public DbSet<Article> FamilyTreeArticles {get; set;}
+        public DbSet<BirthParish> FamilyTreeBirthParishes {get; set;}
+        public DbSet<Image> FamilyTreeImages { get; set; }
+        public DbSet<Keyword> FamilyTreeKeywords {get; set;}
+        public DbSet<Person> FamilyTreePersons {get; set;}
 
     }
 }   

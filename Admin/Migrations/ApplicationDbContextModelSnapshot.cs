@@ -17,7 +17,7 @@ namespace MrFamilyTree.Migrations
                 .HasAnnotation("ProductVersion", "3.1.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("FamilyTreeArticle", b =>
+            modelBuilder.Entity("Article", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,17 +43,14 @@ namespace MrFamilyTree.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Articles");
+                    b.ToTable("FamilyTreeArticles");
                 });
 
-            modelBuilder.Entity("FamilyTreeImage", b =>
+            modelBuilder.Entity("BirthParish", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<Guid?>("EId")
                         .HasColumnType("char(36)");
@@ -64,95 +61,12 @@ namespace MrFamilyTree.Migrations
                     b.Property<bool>("EnabledInWeb")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("Url")
+                    b.Property<string>("Names")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Images");
-                });
-
-            modelBuilder.Entity("FamilyTreeKeyword", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<Guid?>("EId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<bool>("Enabled")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("EnabledInWeb")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<int?>("FamilyTreeArticleId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("FamilyTreeImageId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FamilyTreeArticleId");
-
-                    b.HasIndex("FamilyTreeImageId");
-
-                    b.ToTable("Keywords");
-                });
-
-            modelBuilder.Entity("FamilyTreePerson", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("BirthName")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int?>("BirthParishId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime?>("DateOfDeath")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<Guid?>("EId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<bool>("Enabled")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("EnabledInWeb")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<int?>("FatherId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FirstNames")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int?>("MotherId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Notes")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Persons");
+                    b.ToTable("FamilyTreeBirthParishes");
                 });
 
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
@@ -235,6 +149,68 @@ namespace MrFamilyTree.Migrations
                     b.HasIndex("SubjectId", "ClientId", "Type");
 
                     b.ToTable("PersistedGrants");
+                });
+
+            modelBuilder.Entity("Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<Guid?>("EId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("EnabledInWeb")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FamilyTreeImages");
+                });
+
+            modelBuilder.Entity("Keyword", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ArticleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<Guid?>("EId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("EnabledInWeb")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int?>("ImageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticleId");
+
+                    b.HasIndex("ImageId");
+
+                    b.ToTable("FamilyTreeKeywords");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -433,15 +409,74 @@ namespace MrFamilyTree.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("FamilyTreeKeyword", b =>
+            modelBuilder.Entity("Person", b =>
                 {
-                    b.HasOne("FamilyTreeArticle", null)
-                        .WithMany("Keywords")
-                        .HasForeignKey("FamilyTreeArticleId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.HasOne("FamilyTreeImage", null)
+                    b.Property<int?>("ArticleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BirthName")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int?>("BirthParishId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateOfDeath")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("EId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("EnabledInWeb")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int?>("FatherId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstNames")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int?>("ImageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int?>("MotherId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticleId");
+
+                    b.HasIndex("BirthParishId");
+
+                    b.HasIndex("ImageId");
+
+                    b.ToTable("FamilyTreePersons");
+                });
+
+            modelBuilder.Entity("Keyword", b =>
+                {
+                    b.HasOne("Article", null)
                         .WithMany("Keywords")
-                        .HasForeignKey("FamilyTreeImageId");
+                        .HasForeignKey("ArticleId");
+
+                    b.HasOne("Image", null)
+                        .WithMany("Keywords")
+                        .HasForeignKey("ImageId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -493,6 +528,21 @@ namespace MrFamilyTree.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Person", b =>
+                {
+                    b.HasOne("Article", null)
+                        .WithMany("Persons")
+                        .HasForeignKey("ArticleId");
+
+                    b.HasOne("BirthParish", null)
+                        .WithMany("Persons")
+                        .HasForeignKey("BirthParishId");
+
+                    b.HasOne("Image", null)
+                        .WithMany("Persons")
+                        .HasForeignKey("ImageId");
                 });
 #pragma warning restore 612, 618
         }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MrFamilyTree.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -62,6 +62,57 @@ namespace MrFamilyTree.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DeviceCodes", x => x.UserCode);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FamilyTreeArticles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    EId = table.Column<Guid>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Text = table.Column<string>(nullable: true),
+                    Enabled = table.Column<bool>(nullable: false),
+                    EnabledInWeb = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FamilyTreeArticles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FamilyTreeBirthParishes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    EId = table.Column<Guid>(nullable: true),
+                    Names = table.Column<string>(nullable: true),
+                    Enabled = table.Column<bool>(nullable: false),
+                    EnabledInWeb = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FamilyTreeBirthParishes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FamilyTreeImages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    EId = table.Column<Guid>(nullable: true),
+                    Url = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Enabled = table.Column<bool>(nullable: false),
+                    EnabledInWeb = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FamilyTreeImages", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -187,6 +238,81 @@ namespace MrFamilyTree.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "FamilyTreeKeywords",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    EId = table.Column<Guid>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Enabled = table.Column<bool>(nullable: false),
+                    EnabledInWeb = table.Column<bool>(nullable: false),
+                    ArticleId = table.Column<int>(nullable: true),
+                    ImageId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FamilyTreeKeywords", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FamilyTreeKeywords_FamilyTreeArticles_ArticleId",
+                        column: x => x.ArticleId,
+                        principalTable: "FamilyTreeArticles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_FamilyTreeKeywords_FamilyTreeImages_ImageId",
+                        column: x => x.ImageId,
+                        principalTable: "FamilyTreeImages",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FamilyTreePersons",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    EId = table.Column<Guid>(nullable: true),
+                    FirstNames = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    DateOfBirth = table.Column<DateTime>(nullable: true),
+                    DateOfDeath = table.Column<DateTime>(nullable: true),
+                    MotherId = table.Column<int>(nullable: true),
+                    FatherId = table.Column<int>(nullable: true),
+                    BirthName = table.Column<string>(nullable: true),
+                    Notes = table.Column<string>(nullable: true),
+                    Enabled = table.Column<bool>(nullable: false),
+                    EnabledInWeb = table.Column<bool>(nullable: false),
+                    ArticleId = table.Column<int>(nullable: true),
+                    BirthParishId = table.Column<int>(nullable: true),
+                    ImageId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FamilyTreePersons", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FamilyTreePersons_FamilyTreeArticles_ArticleId",
+                        column: x => x.ArticleId,
+                        principalTable: "FamilyTreeArticles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_FamilyTreePersons_FamilyTreeBirthParishes_BirthParishId",
+                        column: x => x.BirthParishId,
+                        principalTable: "FamilyTreeBirthParishes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_FamilyTreePersons_FamilyTreeImages_ImageId",
+                        column: x => x.ImageId,
+                        principalTable: "FamilyTreeImages",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -236,6 +362,31 @@ namespace MrFamilyTree.Migrations
                 column: "Expiration");
 
             migrationBuilder.CreateIndex(
+                name: "IX_FamilyTreeKeywords_ArticleId",
+                table: "FamilyTreeKeywords",
+                column: "ArticleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FamilyTreeKeywords_ImageId",
+                table: "FamilyTreeKeywords",
+                column: "ImageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FamilyTreePersons_ArticleId",
+                table: "FamilyTreePersons",
+                column: "ArticleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FamilyTreePersons_BirthParishId",
+                table: "FamilyTreePersons",
+                column: "BirthParishId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FamilyTreePersons_ImageId",
+                table: "FamilyTreePersons",
+                column: "ImageId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PersistedGrants_Expiration",
                 table: "PersistedGrants",
                 column: "Expiration");
@@ -267,6 +418,12 @@ namespace MrFamilyTree.Migrations
                 name: "DeviceCodes");
 
             migrationBuilder.DropTable(
+                name: "FamilyTreeKeywords");
+
+            migrationBuilder.DropTable(
+                name: "FamilyTreePersons");
+
+            migrationBuilder.DropTable(
                 name: "PersistedGrants");
 
             migrationBuilder.DropTable(
@@ -274,6 +431,15 @@ namespace MrFamilyTree.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "FamilyTreeArticles");
+
+            migrationBuilder.DropTable(
+                name: "FamilyTreeBirthParishes");
+
+            migrationBuilder.DropTable(
+                name: "FamilyTreeImages");
         }
     }
 }

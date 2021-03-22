@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class FamilyTreeArticle: ArticleView
+public class Article: ArticleView
    {  
        [Key]
        public int Id {get; set; }
@@ -17,5 +17,6 @@ public class FamilyTreeArticle: ArticleView
        public string Name { get; set; }
        public string Description { get; set; }
        public string Text { get; set; }
-       public ICollection<FamilyTreeKeyword> Keywords { get; set; }       
+       public ICollection<Keyword> Keywords { get; set; }  
+       public ICollection<Person> Persons { get; set; }       
    }  
