@@ -48,8 +48,8 @@ namespace FamilyTreeAPI
                 name: "AllowOrigin",
                 builder =>{
                     builder.AllowAnyOrigin()
-                            .AllowAnyMethod()
-                            .AllowAnyHeader();
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
                 });
             });
         }
