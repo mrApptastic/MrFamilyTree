@@ -1,5 +1,7 @@
-public class LoginModel
-{
-    public string UserName { get; set; }
-    public string Password { get; set; }
+namespace FamilyTreeAPI.Models {
+    public class LoginModel
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
+    }
 }

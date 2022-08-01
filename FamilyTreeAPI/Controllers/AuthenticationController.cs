@@ -8,17 +8,23 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using FamilyTreeAPI.Models;
 
-namespace PortfolioAPI.Controllers
+
+namespace FamilyTreeAPI.Controllers
 {
 
     [ApiController]
     [Route("api/[controller]")]
     public class AuthenticationController : ControllerBase
     {
-
         // https://code-maze.com/authentication-aspnetcore-jwt-1/
         private readonly ILogger<AuthenticationController> _logger;
+
+        public AuthenticationController(ILogger<AuthenticationController> logger)
+        {
+            _logger = logger;
+        }
 
         [HttpGet, Authorize]
         public IEnumerable<string> Get()
