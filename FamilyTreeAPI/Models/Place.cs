@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FamilyTreeAPI.Models {
-    public class BirthParish: BirthParishView
+    public class Place: PlaceView
     {  
         [Key]
         public int Id {get; set; }
@@ -12,10 +12,10 @@ namespace FamilyTreeAPI.Models {
         public bool EnabledInWeb { get; set; }
     }  
 
-    public class BirthParishView
+    public class PlaceView
     {  
         public Guid? EId { get; set; }  
-        public string Names { get; set; }
-        public ICollection<Person> Persons { get; set; }        
+        public string Name { get; set; }
+        public Parish Parish { get; set; }    
     }
 }

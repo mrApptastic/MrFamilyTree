@@ -19,8 +19,11 @@ namespace FamilyTreeAPI.Models {
         public string LastName { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public DateTime? DateOfDeath { get; set; }
-        public int? MotherId { get; set; }
-        public int? FatherId { get; set; }
+        public Place PlaceOfBirth { get; set; }
+        [ForeignKey("MotherId")]
+        public Person Mother { get; set; }
+        [ForeignKey("FatherId")]
+        public Person Father { get; set; }
         public string BirthName { get; set; }
         public string Notes { get; set; }
     }
