@@ -12,9 +12,14 @@ namespace FamilyTreeAPI.Models {
         public bool EnabledInWeb { get; set; }
     }  
 
-    public class ParishView
+    public class ParishBase
     {  
         public Guid? EId { get; set; }  
         public string Name { get; set; }   
+    }
+
+    public class ParishView : ParishBase
+    {  
+ 
     }
 }
