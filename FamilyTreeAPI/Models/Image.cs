@@ -17,7 +17,7 @@ namespace FamilyTreeAPI.Models {
         public Guid? EId { get; set; }  
         public string Url { get; set; }
         public string Description { get; set; }
-        public ICollection<Keyword> Keywords { get; set; }   
-        public ICollection<Person> Persons { get; set; }      
+        // public ICollection<Keyword> Keywords { get; set; }   
+        // public ICollection<Person> Persons { get; set; }      
     }
 }
