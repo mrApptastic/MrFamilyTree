@@ -14,7 +14,7 @@ namespace FamilyTreeAPI.Models {
 
     public class PlaceView
     {  
-        public Guid? EId { get; set; }  
+        public Guid EId { get; set; } = Guid.NewGuid();  
         public string Name { get; set; }
         public Parish Parish { get; set; }    
     }

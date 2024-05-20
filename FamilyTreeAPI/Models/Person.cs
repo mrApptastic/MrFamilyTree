@@ -9,26 +9,27 @@ namespace FamilyTreeAPI.Models {
     {  
         [Key]
         public int Id {get; set; }
-        public bool Enabled { get; set; }
-        public bool EnabledInWeb { get; set; }
+        public bool Enabled { get; set; } = true;
+        public bool EnabledInWeb { get; set; } = false;
     }
 
     public class PersonBase {
-        public Guid? EId { get; set; }  
-        public string FirstNames { get; set; }
-        public string LastName { get; set; }
-        public DateTime? DateOfBirth { get; set; }
-        public DateTime? DateOfDeath { get; set; }
-        public Place PlaceOfBirth { get; set; }
+        public Guid EId { get; set; } = Guid.NewGuid();   
+        public string FirstNames { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public DateOnly? DateOfBirth { get; set; }
+        public DateOnly? DateOfDeath { get; set; }
+        public Place? PlaceOfBirth { get; set; }
         [ForeignKey("MotherId")]
-        public Person Mother { get; set; }
+        public Person? Mother { get; set; }
         [ForeignKey("FatherId")]
-        public Person Father { get; set; }
-        public string BirthName { get; set; }
-        public string Notes { get; set; }
-        public Image Avatar { get; set; }
-        public ICollection<Image> Images { get; set; }
-        public ICollection<Keyword> Keywords { get; set; }
+        public Person? Father { get; set; }
+        public string? BirthName { get; set; }
+        public string? Notes { get; set; }
+        public bool IsFemale { get; set; } = true;
+        // public Image Avatar { get; set; }
+        // public ICollection<Image> Images { get; set; }
+        // public ICollection<Keyword> Keywords { get; set; }
     }
 
     public class PersonView : PersonBase

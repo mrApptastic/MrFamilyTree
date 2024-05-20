@@ -14,8 +14,8 @@ namespace FamilyTreeAPI.Models {
 
     public class ParishBase
     {  
-        public Guid? EId { get; set; }  
-        public string Name { get; set; }   
+        public Guid EId { get; set; } = Guid.NewGuid();   
+        public string Name { get; set; } = string.Empty;  
     }
 
     public class ParishView : ParishBase

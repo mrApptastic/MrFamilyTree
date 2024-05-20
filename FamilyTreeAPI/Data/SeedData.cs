@@ -4,16 +4,79 @@ using Microsoft.EntityFrameworkCore;
 using FamilyTreeAPI.Data;
 using FamilyTreeAPI.Models;
 
-namespace FamilyTreeAPI.Data {
+namespace FamilyTreeAPI.Data
+{
 
-    public class SeedData {
+    public class SeedData
+    {
 
-        public static void SeedDatabase(ApplicationDbContext context) {            
-            // if (context.Database.GetMigrations().Count() > 0
-            //         && context.Database.GetPendingMigrations().Count() == 0
-            //         && context.FamilyTreePersons.Count() == 0) {
-
-            // }
+        public static void SeedDatabase(ApplicationDbContext context)
+        {
+            if (context.Database.GetMigrations().Count() > 0
+                    && context.Database.GetPendingMigrations().Count() == 0
+                    && context.FamilyTreePersons.Count() == 0)
+            {
+                var quackmore = new Person
+                {
+                    FirstNames = "Quackmore",
+                    LastName = "Duck",
+                    IsFemale = false
+                };
+                var hortense = new Person
+                {
+                    FirstNames = "Hortense",
+                    LastName = "Duck",
+                    BirthName = "McDuck",
+                    IsFemale = true
+                };
+                var donald = new Person
+                {
+                    FirstNames = "Donald",
+                    LastName = "Duck",
+                    DateOfBirth = new DateOnly(1934, 6, 9),
+                    IsFemale = false,
+                    Father = quackmore,
+                    Mother = hortense
+                };
+                var della = new Person
+                {
+                    FirstNames = "Della",
+                    LastName = "Duck",
+                    IsFemale = true,
+                    Father = quackmore,
+                    Mother = hortense
+                };
+                var huey = new Person
+                {
+                    FirstNames = "Huey",
+                    LastName = "Duck",
+                    IsFemale = false,
+                    Mother = della
+                };
+                var louie = new Person
+                {
+                    FirstNames = "Louie",
+                    LastName = "Duck",
+                    IsFemale = false,
+                    Mother = della
+                };
+                var dewey = new Person
+                {
+                    FirstNames = "Dewey",
+                    LastName = "Duck",
+                    IsFemale = false,
+                    Mother = della
+                };
+                context.FamilyTreePersons.AddRange(
+                    quackmore,
+                    hortense,
+                    donald,
+                    della,
+                    huey,
+                    louie,
+                    dewey
+                );
+            }
         }
     }
 }
