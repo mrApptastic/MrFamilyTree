@@ -1,23 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using FamilyTreeAPI.Data;
-// using FamilyTreeAPI.Managers;
-
-
 
 namespace FamilyTreeAPI
 {
@@ -40,7 +25,8 @@ namespace FamilyTreeAPI
 
             services.AddControllers();
 
-            services.AddAuthentication(opt => {
+            services.AddAuthentication(opt =>
+            {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
@@ -60,21 +46,24 @@ namespace FamilyTreeAPI
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
-            
-            services. AddCors(c =>
+
+            services.AddCors(c =>
             {
                 c.AddPolicy(
                 name: "AllowOrigin",
-                builder =>{
+                builder =>
+                {
                     builder.AllowAnyOrigin()
                            .AllowAnyMethod()
                            .AllowAnyHeader();
                 });
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                 options.UseMySql(
-                     Configuration.GetConnectionString("DefaultConnection")));
+            // Replace 'YourDbContext' with the name of your own DbContext derived class.
+            services.AddDbContext<ApplicationDbContext>(
+                options => options
+                    .UseMySql(
+                        Configuration.GetConnectionString("DefaultConnection"), ServerVersion.Create(10,4,32,0)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -105,7 +94,7 @@ namespace FamilyTreeAPI
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
-            
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
