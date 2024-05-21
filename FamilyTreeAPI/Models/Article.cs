@@ -15,10 +15,11 @@ namespace FamilyTreeAPI.Models {
     public class ArticleView
     {  
         public Guid EId { get; set; } = Guid.NewGuid();  
-        public string Name { get; set; } = "";
-        public string Description { get; set; } = "";
-        public string Text { get; set; } = "";
-        public ICollection<Keyword> Keywords { get; set; } = new List<Keyword>();  
-        public ICollection<Person> Persons { get; set; } = new List<Person>();   
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Text { get; set; } = string.Empty;
+        public ICollection<Keyword>? Keywords { get; set; }
+        public ICollection<Person>? Persons { get; set; }  
+        public ICollection<Image>? Images { get; set; }
     }
 }

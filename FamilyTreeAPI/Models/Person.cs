@@ -27,9 +27,8 @@ namespace FamilyTreeAPI.Models {
         public string? BirthName { get; set; }
         public string? Notes { get; set; }
         public bool IsFemale { get; set; } = true;
-        // public Image Avatar { get; set; }
-        // public ICollection<Image> Images { get; set; }
-        // public ICollection<Keyword> Keywords { get; set; }
+        //
+        public Image? Avatar { get; set; }
     }
 
     public class PersonView : PersonBase

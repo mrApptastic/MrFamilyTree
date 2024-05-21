@@ -18,6 +18,6 @@ namespace FamilyTreeAPI.Models {
         public string Url { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         // public ICollection<Keyword> Keywords { get; set; }   
-        // public ICollection<Person> Persons { get; set; }      
+        // public ICollection<Person> Persons { get; set; } = new List<Person>();  
     }
 }
