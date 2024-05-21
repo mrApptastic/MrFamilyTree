@@ -76,6 +76,8 @@ namespace FamilyTreeAPI.Data
                     louie,
                     dewey
                 );
+                
+                context.SaveChanges();
             }
         }
     }
