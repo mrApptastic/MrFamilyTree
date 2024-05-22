@@ -39,7 +39,7 @@ namespace FamilyTreeAPI.Controllers
             {
                 return BadRequest("Invalid client request");
             }
-            if (user.UserName == "johndoe" && user.Password == "def@123")
+            if (user.UserName == "Test" && user.Password == "Test-1234")
             {
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superTroperTotallyUberSecretKey@345"));
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
