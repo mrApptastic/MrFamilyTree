@@ -26,7 +26,7 @@ namespace FamilyTreeAPI.Data
                 {
                     FirstNames = "Hortense",
                     LastName = "Duck",
-                    BirthName = "McDuck",
+                    BirthName = "Hortense McDuck",
                     IsFemale = true
                 };
                 var donald = new Person
@@ -51,21 +51,24 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Huey",
                     LastName = "Duck",
                     IsFemale = false,
-                    Mother = della
+                    Mother = della,
+                    DateOfBirth = new DateOnly(1937, 5, 2)
                 };
                 var louie = new Person
                 {
                     FirstNames = "Louie",
                     LastName = "Duck",
                     IsFemale = false,
-                    Mother = della
+                    Mother = della,
+                    DateOfBirth = new DateOnly(1937, 5, 2)
                 };
                 var dewey = new Person
                 {
                     FirstNames = "Dewey",
                     LastName = "Duck",
                     IsFemale = false,
-                    Mother = della
+                    Mother = della,
+                    DateOfBirth = new DateOnly(1937, 5, 2)
                 };
                 context.FamilyTreePersons.AddRange(
                     quackmore,
@@ -76,7 +79,15 @@ namespace FamilyTreeAPI.Data
                     louie,
                     dewey
                 );
-                
+
+                context.FamilyTreeArticles.AddRange(
+                    new Article() {
+                        Name = "The Wise Litte Hen",
+                        Description = "",
+                        Persons = new List<Person>() { donald }
+                    }
+                );
+
                 context.SaveChanges();
             }
         }
