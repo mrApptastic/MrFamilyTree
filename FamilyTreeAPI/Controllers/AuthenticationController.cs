@@ -28,12 +28,6 @@ namespace FamilyTreeAPI.Controllers
             _userRepository = userRepository;
         }
 
-        [HttpGet, Authorize]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "John Doe", "Jane Doe" };
-        } 
-
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel user)
         {
@@ -56,7 +50,7 @@ namespace FamilyTreeAPI.Controllers
                     signingCredentials: signinCredentials
                 );
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
-                return Ok(new AuthenticatedResponse { Token = tokenString });
+                return Ok(new AuthenticatedResponse { Token = tokenString, User = dbUser.Name });
             }
             return Unauthorized();
         } 

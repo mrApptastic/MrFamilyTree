@@ -9,8 +9,8 @@ namespace FamilyTreeAPI.Models
     {
         [Key]
         public int Id { get; set; }
-        public bool Enabled { get; set; }
-        public bool EnabledInWeb { get; set; }
+        public bool Enabled { get; set; } = true;
+        public bool EnabledInWeb { get; set; } = false;
     }
 
     public class PlaceView
