@@ -9,21 +9,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using FamilyTreeAPI.Models;
+using FamilyTreeAPI.Data;
 
 
 namespace FamilyTreeAPI.Controllers
 {
 
-    [ApiController]
-    [Route("api/[controller]")]
+    [ApiController, AllowAnonymous, Route("api/[controller]")]
     public class AuthenticationController : ControllerBase
     {
         // https://code-maze.com/authentication-aspnetcore-jwt-1/
         private readonly ILogger<AuthenticationController> _logger;
+        private readonly IUserRepository _userRepository;
 
-        public AuthenticationController(ILogger<AuthenticationController> logger)
+        public AuthenticationController(ILogger<AuthenticationController> logger, IUserRepository userRepository)
         {
             _logger = logger;
+            _userRepository = userRepository;
         }
 
         [HttpGet, Authorize]
@@ -33,13 +35,16 @@ namespace FamilyTreeAPI.Controllers
         } 
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginModel user)
+        public async Task<IActionResult> Login([FromBody] LoginModel user)
         {
             if (user is null)
             {
                 return BadRequest("Invalid client request");
             }
-            if (user.UserName == "Test" && user.Password == "Test-1234")
+
+            var dbUser = await _userRepository.GetUserAsync(user.UserName, user.Password);
+
+            if (dbUser != null)
             {
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superTroperTotallyUberSecretKey@345"));
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);

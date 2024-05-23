@@ -5,7 +5,7 @@ using FamilyTreeAPI.Models;
 namespace FamilyTreeAPI.Data
 {
 	public interface IUserRepository {
-        Task<User?> GetUser(string name, string password);
+        Task<User?> GetUserAsync(string name, string password);
     }
 
     public class UserRepository: IUserRepository
@@ -21,7 +21,7 @@ namespace FamilyTreeAPI.Data
             _context = context;
         }
 
-        public async Task<User?> GetUser(string name, string password) 
+        public async Task<User?> GetUserAsync(string name, string password) 
         {
             return await _context.FamilyTreeUsers.Where(x => x.Name == name && x.Password == password).FirstOrDefaultAsync();
         }        

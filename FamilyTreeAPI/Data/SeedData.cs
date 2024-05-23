@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using FamilyTreeAPI.Data;
 using FamilyTreeAPI.Models;
 
 namespace FamilyTreeAPI.Data
@@ -81,12 +78,15 @@ namespace FamilyTreeAPI.Data
                 );
 
                 context.FamilyTreeArticles.AddRange(
-                    new Article() {
+                    new Article()
+                    {
                         Name = "The Wise Litte Hen",
                         Description = "",
                         Persons = new List<Person>() { donald }
                     }
                 );
+
+                context.FamilyTreeUsers.Add(new User() { Name = "Test", Password = "Test-1234" });
 
                 context.SaveChanges();
             }
