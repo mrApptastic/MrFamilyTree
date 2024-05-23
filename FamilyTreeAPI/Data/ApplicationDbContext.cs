@@ -13,11 +13,11 @@ namespace FamilyTreeAPI.Data
             : base(options)
             { }
 
+        public DbSet<User> FamilyTreeUsers { get; set;}  
         public DbSet<Article> FamilyTreeArticles { get; set; }
         public DbSet<Place> FamilyTreePlaces { get; set; }
         public DbSet<Image> FamilyTreeImages { get; set; }
         public DbSet<Keyword> FamilyTreeKeywords { get; set; }
         public DbSet<Person> FamilyTreePersons { get; set; }
-
     }
 }   

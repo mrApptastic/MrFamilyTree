@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using FamilyTreeAPI.Data;
 using Microsoft.OpenApi.Models;
+using FamilyTreeAPI.Models;
 
 namespace FamilyTreeAPI
 {
@@ -20,7 +21,7 @@ namespace FamilyTreeAPI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddScoped<ISyncManager, SyncManager>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddAutoMapper(typeof(Startup));
 
