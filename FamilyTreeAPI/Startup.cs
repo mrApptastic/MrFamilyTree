@@ -22,6 +22,7 @@ namespace FamilyTreeAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
 
             services.AddAutoMapper(typeof(Startup));
 
