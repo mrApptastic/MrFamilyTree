@@ -5,7 +5,7 @@ using FamilyTreeAPI.Models;
 namespace FamilyTreeAPI.Data
 {
 	public interface IPersonRepository {
-        Task<PersonView> GetPersonAsync(Guid externalId);
+        Task<PersonView> GetPersonAsync(Guid externalId, bool onlyEnabledForWeb = true);
     }
 
     public class PersonRepository: IPersonRepository
@@ -21,9 +21,12 @@ namespace FamilyTreeAPI.Data
             _context = context;
         }
 
-        public async Task<PersonView> GetPersonAsync(Guid externalId) 
+        public async Task<PersonView> GetPersonAsync(Guid externalId, bool onlyEnabledForWeb = true) 
         {
-            var person = await _context.FamilyTreePersons.Where(x => x.EId == externalId).FirstOrDefaultAsync();
+            var person = await _context.FamilyTreePersons
+                                       .Where(x => x.EId == externalId && 
+                                                   (onlyEnabledForWeb ? x.EnabledInWeb : true)
+                                        ).FirstOrDefaultAsync();
             
             if (person == null) {
                 var expt = new ArgumentException("The requested person does not exist");

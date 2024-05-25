@@ -15,7 +15,7 @@ using FamilyTreeAPI.Data;
 namespace FamilyTreeAPI.Controllers
 {
 
-    [ApiController, AllowAnonymous, Route("api/[controller]")]
+    [ApiController, AllowAnonymous, Route("Api/[controller]")]
     public class AuthenticationController : ControllerBase
     {
         // https://code-maze.com/authentication-aspnetcore-jwt-1/
@@ -28,7 +28,7 @@ namespace FamilyTreeAPI.Controllers
             _userRepository = userRepository;
         }
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginModel user)
         {
             if (user is null)
