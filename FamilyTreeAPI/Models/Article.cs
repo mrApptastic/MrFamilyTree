@@ -18,6 +18,7 @@ namespace FamilyTreeAPI.Models {
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string Text { get; set; } = string.Empty;
+        public Branch Branch { get; set; } = default!;
         public ICollection<Keyword>? Keywords { get; set; }
         public ICollection<Person>? Persons { get; set; }  
         public ICollection<Image>? Images { get; set; }

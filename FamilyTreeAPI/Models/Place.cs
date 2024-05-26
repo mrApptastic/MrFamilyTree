@@ -20,5 +20,6 @@ namespace FamilyTreeAPI.Models
         public decimal? Altitude { get; set; }
         public decimal? Latitude { get; set; }
         public decimal? Longitude { get; set; }
+        public Branch Branch { get; set; } = default!;
     }
 }
