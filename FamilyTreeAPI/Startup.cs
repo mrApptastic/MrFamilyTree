@@ -5,6 +5,8 @@ using Microsoft.IdentityModel.Tokens;
 using FamilyTreeAPI.Data;
 using Microsoft.OpenApi.Models;
 using FamilyTreeAPI.Models;
+using FamilyTreeAPI.Auth;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FamilyTreeAPI
 {
@@ -23,9 +25,16 @@ namespace FamilyTreeAPI
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IPersonRepository, PersonRepository>();
+            // services.AddSingleton<IAuthorizationHandler, BranchRequirementHandler>();
 
             services.AddAutoMapper(typeof(Startup));
 
+            // services.AddAuthorization(options =>
+            // {
+            //     options.AddPolicy("BranchPolicy", policy =>
+            //         policy.Requirements.Add(new BranchRequirement()));
+            // });
+            
             services.AddControllers();
 
             services.AddAuthentication(opt =>
