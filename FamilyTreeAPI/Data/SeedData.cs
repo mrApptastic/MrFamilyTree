@@ -16,7 +16,190 @@ namespace FamilyTreeAPI.Data
                 var duckFamily = new Branch()
                 {
                     Name = "The Duck Family",
-                    Description = "Relatives of Donald Duck from Duckville."
+                    Description = "Relatives of Donald Duck from Duckburg."
+                };
+
+                var duckburg = new Place() {
+                    Name = "Duckburg",
+                    Longitude = (decimal)124.18155,
+                    Latitude = (decimal)40.38130
+                };
+
+                var gertrude = new Person
+                {
+                    FirstNames = "Gertrude",
+                    LastName = "Gadwall",
+                    IsFemale = true,
+                    EnabledInWeb = true,
+                    Branch = duckFamily
+                };
+
+                var clinton = new Person
+                {
+                    FirstNames = "Clinton",
+                    LastName = "Coot",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily
+                };
+
+                var casey = new Person
+                {
+                    FirstNames = "Casey",
+                    LastName = "Coot",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = gertrude,
+                    Father = clinton
+                };
+
+                var gretchen = new Person
+                {
+                    FirstNames = "Gretchen",
+                    LastName = "Coot",
+                    IsFemale = true,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    BirthName = "Gretchen Grebbe"
+                };
+
+                var fanny = new Person
+                {
+                    FirstNames = "Fanny",
+                    LastName = "Goose",
+                    IsFemale = true,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = gretchen,
+                    Father = casey,
+                    BirthName = "Fanny Coot"
+                };
+
+                var cuthbert = new Person
+                {
+                    FirstNames = "Cuthbert",
+                    LastName = "Coot",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = gretchen,
+                    Father = casey
+                };
+
+                var luke = new Person
+                {
+                    FirstNames = "Luke",
+                    LastName = "Goose",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily
+                };
+
+                var gus = new Person
+                {
+                    FirstNames = "Gus",
+                    LastName = "Goose",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = fanny,
+                    Father = luke,
+                };
+
+                var grandma = new Person
+                {
+                    FirstNames = "Grandma",
+                    LastName = "Duck",
+                    IsFemale = true,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = gertrude,
+                    Father = clinton,
+                    BirthName = "Elvira Coot"
+                };
+
+                var humberdink = new Person
+                {
+                    FirstNames = "Humberdink",
+                    LastName = "Duck",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily
+                };
+
+                var daphne = new Person
+                {
+                    FirstNames = "Daphne",
+                    LastName = "Gander",
+                    IsFemale = true,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = grandma,
+                    Father = humberdink,
+                    BirthName = "Daphne Duck"
+                };
+
+                var goosetave = new Person
+                {
+                    FirstNames = "Goosetave",
+                    LastName = "Gander",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily
+                };
+
+                var gladstone = new Person
+                {
+                    FirstNames = "Gladstone",
+                    LastName = "Gander",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = daphne,
+                    Father = goosetave
+                };
+
+                var eider = new Person
+                {
+                    FirstNames = "Eider",
+                    LastName = "Duck",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = grandma,
+                    Father = humberdink
+                };
+
+                var lulubelle = new Person
+                {
+                    FirstNames = "Lulubelle",
+                    LastName = "Loon",
+                    IsFemale = true,
+                    EnabledInWeb = true,
+                    Branch = duckFamily
+                };
+
+                var fethry = new Person
+                {
+                    FirstNames = "Fethry",
+                    LastName = "Duck",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = lulubelle,
+                    Father = eider
+                };
+
+                var abner = new Person
+                {
+                    FirstNames = "Abner",
+                    LastName = "Duck",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = lulubelle,
+                    Father = eider
                 };
 
                 var quackmore = new Person
@@ -25,8 +208,95 @@ namespace FamilyTreeAPI.Data
                     LastName = "Duck",
                     IsFemale = false,
                     EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = grandma,
+                    Father = humberdink
+                };
+
+                var dingus = new Person
+                {
+                    FirstNames = "Dingus",
+                    LastName = "McDuck",
+                    IsFemale = false,
+                    EnabledInWeb = true,
                     Branch = duckFamily
                 };
+
+                var molly = new Person
+                {
+                    FirstNames = "Molly",
+                    LastName = "McDuck",
+                    IsFemale = true,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    BirthName = "Molly Mallard"
+                };
+
+                var angus = new Person
+                {
+                    FirstNames = "Angus",
+                    LastName = "McDuck",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = molly,
+                    Father = dingus
+                };
+
+                var jake = new Person
+                {
+                    FirstNames = "Jake",
+                    LastName = "McDuck",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = molly,
+                    Father = dingus
+                };
+
+                var fergus = new Person
+                {
+                    FirstNames = "Fergus",
+                    LastName = "McDuck",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = molly,
+                    Father = dingus
+                };
+
+                var downy = new Person
+                {
+                    FirstNames = "Downy",
+                    LastName = "McDuck",
+                    IsFemale = true,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    BirthName = "Downy O'Drake"
+                };
+
+                var matilda = new Person
+                {
+                    FirstNames = "Matilda",
+                    LastName = "McDuck",
+                    IsFemale = true,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = downy,
+                    Father = fergus
+                };
+
+                var scrooge = new Person
+                {
+                    FirstNames = "Scrooge",
+                    LastName = "McDuck",
+                    IsFemale = false,
+                    EnabledInWeb = true,
+                    Branch = duckFamily,
+                    Mother = downy,
+                    Father = fergus
+                };
+
                 var hortense = new Person
                 {
                     FirstNames = "Hortense",
@@ -34,8 +304,11 @@ namespace FamilyTreeAPI.Data
                     BirthName = "Hortense McDuck",
                     IsFemale = true,
                     EnabledInWeb = true,
-                    Branch = duckFamily
+                    Branch = duckFamily,
+                    Mother = downy,
+                    Father = fergus
                 };
+
                 var donald = new Person
                 {
                     FirstNames = "Donald",
@@ -47,6 +320,7 @@ namespace FamilyTreeAPI.Data
                     EnabledInWeb = true,
                     Branch = duckFamily
                 };
+
                 var della = new Person
                 {
                     FirstNames = "Della",
@@ -57,6 +331,7 @@ namespace FamilyTreeAPI.Data
                     EnabledInWeb = true,
                     Branch = duckFamily
                 };
+                
                 var huey = new Person
                 {
                     FirstNames = "Huey",
@@ -67,6 +342,7 @@ namespace FamilyTreeAPI.Data
                     EnabledInWeb = true,
                     Branch = duckFamily
                 };
+                
                 var louie = new Person
                 {
                     FirstNames = "Louie",
@@ -77,6 +353,7 @@ namespace FamilyTreeAPI.Data
                     EnabledInWeb = true,
                     Branch = duckFamily
                 };
+                
                 var dewey = new Person
                 {
                     FirstNames = "Dewey",
@@ -89,8 +366,35 @@ namespace FamilyTreeAPI.Data
                 };
 
                 context.FamilyTreeBranches.Add(duckFamily);
-                
+
+                context.FamilyTreePlaces.Add(duckburg);
+
                 context.FamilyTreePersons.AddRange(
+                    clinton,
+                    gertrude,
+                    casey,
+                    gretchen,
+                    cuthbert,
+                    fanny,
+                    luke,
+                    gus,
+                    humberdink,
+                    grandma,
+                    daphne,
+                    goosetave,
+                    gladstone,
+                    eider,
+                    lulubelle,
+                    abner,
+                    fethry,
+                    molly,
+                    dingus,
+                    angus,
+                    jake,
+                    fergus,
+                    downy,
+                    matilda,
+                    scrooge,
                     quackmore,
                     hortense,
                     donald,
@@ -112,11 +416,12 @@ namespace FamilyTreeAPI.Data
                 );
 
                 context.FamilyTreeUsers.Add(
-                    new User() { 
-                        Name = "Test", 
-                        Password = "Test-1234", 
-                        Branches = new List<Branch>() { duckFamily } 
-                });
+                    new User()
+                    {
+                        Name = "Test",
+                        Password = "Test-1234",
+                        Branches = new List<Branch>() { duckFamily }
+                    });
 
                 context.SaveChanges();
             }
