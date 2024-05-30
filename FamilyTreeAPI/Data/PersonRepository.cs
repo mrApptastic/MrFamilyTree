@@ -26,7 +26,10 @@ namespace FamilyTreeAPI.Data
             var person = await _context.FamilyTreePersons
                                        .Where(x => x.EId == externalId && 
                                                    (onlyEnabledForWeb ? x.EnabledInWeb : true)
-                                        ).FirstOrDefaultAsync();
+                                        )
+                                        .Include(x => x.Mother).ThenInclude(y => y.Father).ThenInclude(y => y.Mother)
+                                        .Include(x => x.Father).ThenInclude(y => y.Father).ThenInclude(y => y.Mother)
+                                        .FirstOrDefaultAsync();
             
             if (person == null) {
                 var expt = new ArgumentException("The requested person does not exist");

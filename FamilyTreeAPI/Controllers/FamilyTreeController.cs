@@ -5,7 +5,7 @@ using FamilyTreeAPI.Data;
 
 namespace FamilyTreeAPI.Controllers
 {
-    [ApiController, AllowAnonymous, Route("Api/[controller]")]
+    [ApiController, Authorize, Route("Api/[controller]")]
     public class FamilyTreeController : ControllerBase
     {
         private readonly ILogger<FamilyTreeController> _logger;
