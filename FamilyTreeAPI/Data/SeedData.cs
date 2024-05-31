@@ -191,7 +191,8 @@ namespace FamilyTreeAPI.Data
                     EnabledInWeb = true,
                     Branch = duckFamily,
                     Mother = lulubelle,
-                    Father = eider
+                    Father = eider,
+                    DateOfBirth = new DateOnly(1964, 8, 2)
                 };
 
                 var abner = new Person
