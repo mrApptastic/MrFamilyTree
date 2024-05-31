@@ -19,7 +19,8 @@ namespace FamilyTreeAPI.Data
                     Description = "Relatives of Donald Duck from Duckburg."
                 };
 
-                var duckburg = new Place() {
+                var duckburg = new Place()
+                {
                     Name = "Duckburg",
                     Longitude = (decimal)124.18155,
                     Latitude = (decimal)40.38130
@@ -28,10 +29,11 @@ namespace FamilyTreeAPI.Data
                 var gertrude = new Person
                 {
                     FirstNames = "Gertrude",
-                    LastName = "Gadwall",
+                    LastName = "Coot",
                     IsFemale = true,
                     EnabledInWeb = true,
-                    Branch = duckFamily
+                    Branch = duckFamily,
+                    BirthName = "Gertrude Gadwall"
                 };
 
                 var clinton = new Person
@@ -105,6 +107,7 @@ namespace FamilyTreeAPI.Data
                     Branch = duckFamily,
                     Mother = fanny,
                     Father = luke,
+                    DateOfBirth = new DateOnly(1939, 5, 19)
                 };
 
                 var grandma = new Person
@@ -331,7 +334,7 @@ namespace FamilyTreeAPI.Data
                     EnabledInWeb = true,
                     Branch = duckFamily
                 };
-                
+
                 var huey = new Person
                 {
                     FirstNames = "Huey",
@@ -342,7 +345,7 @@ namespace FamilyTreeAPI.Data
                     EnabledInWeb = true,
                     Branch = duckFamily
                 };
-                
+
                 var louie = new Person
                 {
                     FirstNames = "Louie",
@@ -353,7 +356,7 @@ namespace FamilyTreeAPI.Data
                     EnabledInWeb = true,
                     Branch = duckFamily
                 };
-                
+
                 var dewey = new Person
                 {
                     FirstNames = "Dewey",
@@ -410,6 +413,22 @@ namespace FamilyTreeAPI.Data
                         Name = "The Wise Litte Hen",
                         Description = "",
                         Persons = new List<Person>() { donald },
+                        EnabledInWeb = true,
+                        Branch = duckFamily
+                    },
+                    new Article()
+                    {
+                        Name = "Donald's Nephews",
+                        Description = "",
+                        Persons = new List<Person>() { donald, huey, louie, dewey },
+                        EnabledInWeb = true,
+                        Branch = duckFamily
+                    },
+                    new Article()
+                    {
+                        Name = "Donald's Cousin Gus",
+                        Description = "",
+                        Persons = new List<Person>() { donald, gus },
                         EnabledInWeb = true,
                         Branch = duckFamily
                     }
