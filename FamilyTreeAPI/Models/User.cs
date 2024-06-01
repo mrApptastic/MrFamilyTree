@@ -8,6 +8,6 @@ namespace FamilyTreeAPI.Models
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public List<Branch> Branches { get; set; } = default!;
+        public List<Branch>? Branches { get; set; }
     }
 }

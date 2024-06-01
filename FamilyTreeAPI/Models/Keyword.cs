@@ -19,5 +19,6 @@ namespace FamilyTreeAPI.Models
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public Branch Branch { get; set; } = default!;
+        public ICollection<Image>? Images{ get; set; }
     }
 }
