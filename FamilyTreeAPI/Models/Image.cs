@@ -21,6 +21,6 @@ namespace FamilyTreeAPI.Models
         public Branch Branch { get; set; } = default!;
         // public ICollection<Image> Images{ get; set; } = default!;
         public ICollection<Keyword>? Keywords { get; set; }   
-        // public ICollection<Person> Persons { get; set; } = new List<Person>();  
+        public ICollection<Person>? Persons { get; set; }
     }
 }
