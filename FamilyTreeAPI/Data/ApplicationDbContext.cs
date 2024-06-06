@@ -21,5 +21,16 @@ namespace FamilyTreeAPI.Data
         public DbSet<Keyword> FamilyTreeKeywords { get; set; }
         public DbSet<Person> FamilyTreePersons { get; set; }
         public DbSet<Branch> FamilyTreeBranches { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Keyword>()
+            .HasMany(a => a.Images)
+            .WithMany(i => i.Keywords)
+            .UsingEntity<Dictionary<string, object>>(
+                "FamilyTreeImageKeywords",
+                j => j.HasOne<Image>().WithMany().HasForeignKey("ImageId"),
+                j => j.HasOne<Keyword>().WithMany().HasForeignKey("KeywordId"));
+    }
     }
 }
