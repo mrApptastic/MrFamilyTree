@@ -23,7 +23,8 @@ namespace FamilyTreeAPI.Data
                 {
                     Name = "Duckburg",
                     Longitude = (decimal)124.18155,
-                    Latitude = (decimal)40.38130
+                    Latitude = (decimal)40.38130,
+                    Branch = duckFamily
                 };
 
                 var gertrude = new Person
@@ -371,7 +372,7 @@ namespace FamilyTreeAPI.Data
 
                 context.FamilyTreeBranches.Add(duckFamily);
 
-                // context.FamilyTreePlaces.Add(duckburg);
+                context.FamilyTreePlaces.Add(duckburg);
 
                 context.FamilyTreePersons.AddRange(
                     clinton,
