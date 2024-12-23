@@ -23,14 +23,22 @@ namespace FamilyTreeAPI.Data
         public DbSet<Branch> FamilyTreeBranches { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Keyword>()
-            .HasMany(a => a.Images)
-            .WithMany(i => i.Keywords)
-            .UsingEntity<Dictionary<string, object>>(
-                "FamilyTreeImageKeywords",
-                j => j.HasOne<Image>().WithMany().HasForeignKey("ImageId"),
-                j => j.HasOne<Keyword>().WithMany().HasForeignKey("KeywordId"));
-    }
+        {
+            modelBuilder.Entity<Keyword>()
+                .HasMany(a => a.Images)
+                .WithMany(i => i.Keywords)
+                .UsingEntity<Dictionary<string, object>>(
+                    "FamilyTreeImageKeywords",
+                    j => j.HasOne<Image>().WithMany().HasForeignKey("ImageId"),
+                    j => j.HasOne<Keyword>().WithMany().HasForeignKey("KeywordId"));
+
+            modelBuilder.Entity<Branch>()
+                .HasMany(b => b.Users)
+                .WithMany(u => u.Branches)
+                .UsingEntity<Dictionary<string, object>>(
+                    "FamilyTreeBranchUser",
+                    j => j.HasOne<User>().WithMany().HasForeignKey("UserId"),
+                    j => j.HasOne<Branch>().WithMany().HasForeignKey("BranchId"));
+        }
     }
 }

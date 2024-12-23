@@ -371,7 +371,7 @@ namespace FamilyTreeAPI.Data
 
                 context.FamilyTreeBranches.Add(duckFamily);
 
-                context.FamilyTreePlaces.Add(duckburg);
+                // context.FamilyTreePlaces.Add(duckburg);
 
                 context.FamilyTreePersons.AddRange(
                     clinton,
