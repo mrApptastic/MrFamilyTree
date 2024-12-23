@@ -18,9 +18,9 @@ namespace FamilyTreeAPI.Controllers
         }
 
         [HttpGet("Person/{ExternalId}")]
-        public async Task<ActionResult<PersonView>> GetPerson([FromRoute] Guid ExternalId)
+        public async Task<ActionResult<PersonView>> GetPerson([FromRoute] Guid Id)
         {
-            return  Ok(await _personRepository.GetPersonAsync(ExternalId));
+            return  Ok(await _personRepository.GetPersonAsync(Id));
         } 
     }
 }

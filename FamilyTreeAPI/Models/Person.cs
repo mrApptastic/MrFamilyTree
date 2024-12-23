@@ -8,15 +8,14 @@ namespace FamilyTreeAPI.Models
 {
     public class Person : PersonBase
     {
-        [Key]
-        public int Id { get; set; }
         public bool Enabled { get; set; } = true;
-        public bool EnabledInWeb { get; set; } = false;
+        public bool Public { get; set; } = false;
     }
 
     public class PersonBase
     {
-        public Guid EId { get; set; } = Guid.NewGuid();
+        [Key]
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string FirstNames { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public DateOnly? DateOfBirth { get; set; }
@@ -32,6 +31,7 @@ namespace FamilyTreeAPI.Models
         //
         public Image? Avatar { get; set; }
         public Branch Branch { get; set; } = default!;
+        public ICollection<Article> Articles { get; set; } = new List<Article>();
     }
 
     public class PersonView : PersonBase
@@ -48,7 +48,7 @@ namespace FamilyTreeAPI.Models
             CreateMap<PersonView, Person>()
                 .ForMember(dest => dest.Id, opts => opts.Ignore())
                 .ForMember(dest => dest.Enabled, opts => opts.Ignore())
-                .ForMember(dest => dest.EnabledInWeb, opts => opts.Ignore());
+                .ForMember(dest => dest.Public, opts => opts.Ignore());
         }
     }
 }

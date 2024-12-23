@@ -7,15 +7,15 @@ namespace FamilyTreeAPI.Models
 {
     public class Place : PlaceView
     {
-        [Key]
-        public int Id { get; set; }
+        
         public bool Enabled { get; set; } = true;
-        public bool EnabledInWeb { get; set; } = false;
+        public bool Public { get; set; } = false;
     }
 
     public class PlaceView
     {
-        public Guid EId { get; set; } = Guid.NewGuid();
+        [Key]
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; } = string.Empty;
         public decimal? Altitude { get; set; }
         public decimal? Latitude { get; set; }

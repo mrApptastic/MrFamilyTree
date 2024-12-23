@@ -36,9 +36,17 @@ namespace FamilyTreeAPI.Data
                 .HasMany(b => b.Users)
                 .WithMany(u => u.Branches)
                 .UsingEntity<Dictionary<string, object>>(
-                    "FamilyTreeBranchUser",
+                    "FamilyTreeBranchUsers",
                     j => j.HasOne<User>().WithMany().HasForeignKey("UserId"),
                     j => j.HasOne<Branch>().WithMany().HasForeignKey("BranchId"));
+
+            modelBuilder.Entity<Article>()
+                .HasMany(b => b.Persons)
+                .WithMany(u => u.Articles)
+                .UsingEntity<Dictionary<string, object>>(
+                    "FamilyTreeArticlePersons",
+                    j => j.HasOne<Person>().WithMany().HasForeignKey("PersonId"),
+                    j => j.HasOne<Article>().WithMany().HasForeignKey("ArticleId"));
         }
     }
 }

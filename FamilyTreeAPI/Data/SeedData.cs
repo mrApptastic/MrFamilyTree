@@ -31,7 +31,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Gertrude",
                     LastName = "Coot",
                     IsFemale = true,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     BirthName = "Gertrude Gadwall"
                 };
@@ -41,7 +41,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Clinton",
                     LastName = "Coot",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily
                 };
 
@@ -50,7 +50,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Casey",
                     LastName = "Coot",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = gertrude,
                     Father = clinton
@@ -61,7 +61,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Gretchen",
                     LastName = "Coot",
                     IsFemale = true,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     BirthName = "Gretchen Grebbe"
                 };
@@ -71,7 +71,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Fanny",
                     LastName = "Goose",
                     IsFemale = true,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = gretchen,
                     Father = casey,
@@ -83,7 +83,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Cuthbert",
                     LastName = "Coot",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = gretchen,
                     Father = casey
@@ -94,7 +94,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Luke",
                     LastName = "Goose",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily
                 };
 
@@ -103,7 +103,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Gus",
                     LastName = "Goose",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = fanny,
                     Father = luke,
@@ -115,7 +115,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Grandma",
                     LastName = "Duck",
                     IsFemale = true,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = gertrude,
                     Father = clinton,
@@ -127,7 +127,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Humberdink",
                     LastName = "Duck",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily
                 };
 
@@ -136,7 +136,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Daphne",
                     LastName = "Gander",
                     IsFemale = true,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = grandma,
                     Father = humberdink,
@@ -148,7 +148,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Goosetave",
                     LastName = "Gander",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily
                 };
 
@@ -157,7 +157,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Gladstone",
                     LastName = "Gander",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = daphne,
                     Father = goosetave
@@ -168,7 +168,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Eider",
                     LastName = "Duck",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = grandma,
                     Father = humberdink
@@ -179,7 +179,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Lulubelle",
                     LastName = "Loon",
                     IsFemale = true,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily
                 };
 
@@ -188,7 +188,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Fethry",
                     LastName = "Duck",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = lulubelle,
                     Father = eider,
@@ -200,7 +200,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Abner",
                     LastName = "Duck",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = lulubelle,
                     Father = eider
@@ -211,7 +211,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Quackmore",
                     LastName = "Duck",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = grandma,
                     Father = humberdink
@@ -222,7 +222,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Dingus",
                     LastName = "McDuck",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily
                 };
 
@@ -231,7 +231,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Molly",
                     LastName = "McDuck",
                     IsFemale = true,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     BirthName = "Molly Mallard"
                 };
@@ -241,7 +241,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Angus",
                     LastName = "McDuck",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = molly,
                     Father = dingus
@@ -252,7 +252,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Jake",
                     LastName = "McDuck",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = molly,
                     Father = dingus
@@ -263,7 +263,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Fergus",
                     LastName = "McDuck",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = molly,
                     Father = dingus
@@ -274,7 +274,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Downy",
                     LastName = "McDuck",
                     IsFemale = true,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     BirthName = "Downy O'Drake"
                 };
@@ -284,7 +284,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Matilda",
                     LastName = "McDuck",
                     IsFemale = true,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = downy,
                     Father = fergus
@@ -295,7 +295,7 @@ namespace FamilyTreeAPI.Data
                     FirstNames = "Scrooge",
                     LastName = "McDuck",
                     IsFemale = false,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = downy,
                     Father = fergus
@@ -307,7 +307,7 @@ namespace FamilyTreeAPI.Data
                     LastName = "Duck",
                     BirthName = "Hortense McDuck",
                     IsFemale = true,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily,
                     Mother = downy,
                     Father = fergus
@@ -321,7 +321,7 @@ namespace FamilyTreeAPI.Data
                     IsFemale = false,
                     Father = quackmore,
                     Mother = hortense,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily
                 };
 
@@ -332,7 +332,7 @@ namespace FamilyTreeAPI.Data
                     IsFemale = true,
                     Father = quackmore,
                     Mother = hortense,
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily
                 };
 
@@ -343,7 +343,7 @@ namespace FamilyTreeAPI.Data
                     IsFemale = false,
                     Mother = della,
                     DateOfBirth = new DateOnly(1937, 5, 2),
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily
                 };
 
@@ -354,7 +354,7 @@ namespace FamilyTreeAPI.Data
                     IsFemale = false,
                     Mother = della,
                     DateOfBirth = new DateOnly(1937, 5, 2),
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily
                 };
 
@@ -365,7 +365,7 @@ namespace FamilyTreeAPI.Data
                     IsFemale = false,
                     Mother = della,
                     DateOfBirth = new DateOnly(1937, 5, 2),
-                    EnabledInWeb = true,
+                    Public = true,
                     Branch = duckFamily
                 };
 
@@ -414,7 +414,7 @@ namespace FamilyTreeAPI.Data
                         Name = "The Wise Litte Hen",
                         Description = "",
                         Persons = new List<Person>() { donald },
-                        EnabledInWeb = true,
+                        Public = true,
                         Branch = duckFamily
                     },
                     new Article()
@@ -422,7 +422,7 @@ namespace FamilyTreeAPI.Data
                         Name = "Donald's Nephews",
                         Description = "",
                         Persons = new List<Person>() { donald, huey, louie, dewey },
-                        EnabledInWeb = true,
+                        Public = true,
                         Branch = duckFamily
                     },
                     new Article()
@@ -430,7 +430,7 @@ namespace FamilyTreeAPI.Data
                         Name = "Donald's Cousin Gus",
                         Description = "",
                         Persons = new List<Person>() { donald, gus },
-                        EnabledInWeb = true,
+                        Public = true,
                         Branch = duckFamily
                     }
                 );

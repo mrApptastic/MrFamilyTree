@@ -21,11 +21,11 @@ namespace FamilyTreeAPI.Data
             _context = context;
         }
 
-        public async Task<PersonView> GetPersonAsync(Guid externalId, bool onlyEnabledForWeb = true) 
+        public async Task<PersonView> GetPersonAsync(Guid id, bool onlyPublic = true) 
         {
             var person = await _context.FamilyTreePersons
-                                       .Where(x => x.EId == externalId && 
-                                                   (onlyEnabledForWeb ? x.EnabledInWeb : true)
+                                       .Where(x => x.Id == id && 
+                                                   (onlyPublic ? x.Public : true)
                                         )
                                         .Include(x => x.Mother).ThenInclude(y => y.Father).ThenInclude(y => y.Mother)
                                         .Include(x => x.Father).ThenInclude(y => y.Father).ThenInclude(y => y.Mother)
