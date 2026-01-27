@@ -6,6 +6,7 @@ namespace FamilyTreeAPI.Data
 {
     public interface IPersonRepository
     {
+        Task<PersonView> GetPersonWithGenerationsAsync(Guid id, bool onlyPublic = true);
         Task<PersonView> GetPersonAsync(Guid externalId, bool onlyEnabledForWeb = true);
     }
 

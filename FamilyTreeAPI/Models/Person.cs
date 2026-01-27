@@ -48,7 +48,9 @@ namespace FamilyTreeAPI.Models
             CreateMap<PersonView, Person>()
                 .ForMember(dest => dest.Id, opts => opts.Ignore())
                 .ForMember(dest => dest.Enabled, opts => opts.Ignore())
-                .ForMember(dest => dest.Public, opts => opts.Ignore());
+                .ForMember(dest => dest.Public, opts => opts.Ignore())
+                .ForMember(dest => dest.Mother, opt => opt.MapFrom(src => src.Mother))
+                .ForMember(dest => dest.Father, opt => opt.MapFrom(src => src.Father));
         }
     }
 }

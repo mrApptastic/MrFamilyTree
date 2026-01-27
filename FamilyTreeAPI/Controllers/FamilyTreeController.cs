@@ -20,7 +20,7 @@ namespace FamilyTreeAPI.Controllers
         [HttpGet("Person/{Id}"), AllowAnonymous]
         public async Task<ActionResult<PersonView>> GetPerson([FromRoute] Guid Id)
         {
-            return  Ok(await _personRepository.GetPersonAsync(Id));
+            return  Ok(await _personRepository.GetPersonWithGenerationsAsync(Id));
         } 
     }
 }
