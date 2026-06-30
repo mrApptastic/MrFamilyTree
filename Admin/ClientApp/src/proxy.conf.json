@@ -1,0 +1,11 @@
+{
+  "/MessageHub": {
+    "target": "https://localhost:5001",
+    "secure": false,
+    "ws": true
+  },
+  "/WeatherForecast": {
+    "target": "https://localhost:5001",
+    "secure": false
+  }
+}
