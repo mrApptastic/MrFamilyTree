@@ -1,9 +1,10 @@
-using System;
-
-public class Message  
-   {  
-       public string clientuniqueid { get; set; }  
-       public string type { get; set; }  
-       public string message { get; set; }  
-       public DateTime date { get; set; }  
-   }  
+namespace MrFamilyTree.Models
+{
+    public class Message
+    {
+        public string ClientUniqueId { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
+        public string Content { get; set; } = string.Empty;
+        public DateTime Date { get; set; }
+    }
+}

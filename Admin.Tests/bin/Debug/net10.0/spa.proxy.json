@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:44485",
+"RedirectUrl": "",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "/home/runner/work/MrFamilyTree/MrFamilyTree/Admin/ClientApp/",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}

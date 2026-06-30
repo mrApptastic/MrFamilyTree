@@ -1,44 +1,19 @@
-import { Component, NgZone } from "@angular/core";
-import { Message } from "./models/message";
-import { ChatService } from "./services/chat-service";
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html"
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, NavMenuComponent],
+  template: `
+    <app-nav-menu></app-nav-menu>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  `,
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = "app";
-  txtMessage = "";
-  uniqueID: string = new Date().getTime().toString();
-  messages = new Array<Message>();
-  message = new Message();
-  constructor(
-    private chatService: ChatService,
-    private _ngZone: NgZone
-  ) {
-    this.subscribeToEvents();
-  }
-  sendMessage(): void {
-    if (this.txtMessage) {
-      this.message = new Message();
-      this.message.clientuniqueid = this.uniqueID;
-      this.message.type = "sent";
-      this.message.message = this.txtMessage;
-      this.message.date = new Date();
-      this.messages.push(this.message);
-      this.chatService.sendMessage(this.message);
-      this.txtMessage = "";
-    }
-  }
-  private subscribeToEvents(): void {
-
-    this.chatService.messageReceived.subscribe((message: Message) => {
-      this._ngZone.run(() => {
-        if (message.clientuniqueid !== this.uniqueID) {
-          message.type = "received";
-          this.messages.push(message);
-        }
-      });
-    });
-  }
+  title = 'MrFamilyTree Admin';
 }

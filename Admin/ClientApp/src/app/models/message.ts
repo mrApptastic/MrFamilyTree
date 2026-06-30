@@ -1,6 +1,6 @@
-export class Message {
-    clientuniqueid: string;
-    type: string;
-    message: string;
-    date: Date;
-  }
+export interface Message {
+  clientUniqueId: string;
+  type: string;
+  content: string;
+  date: Date;
+}
